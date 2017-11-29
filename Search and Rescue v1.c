@@ -8,6 +8,9 @@ int gState = 1;
 
 void gState0()
 {
+	motor(left) = 20;
+	motor(right) = 20;
+
 }
 
 void gState1()
