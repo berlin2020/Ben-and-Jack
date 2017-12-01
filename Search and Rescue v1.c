@@ -54,11 +54,11 @@ void gState2()
 {
 	motor(left) = 0;
 	motor(right) = 0;
-}
+		}
 
-void gState3()
-{
-}
+		void gState3()
+		{
+		}
 
 task main()
 {
