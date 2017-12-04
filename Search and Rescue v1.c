@@ -27,8 +27,9 @@ void gState1()
 		goBack = 1;
 		motor(left) = 0;
 		motor(right) = 0;
-		motor(claw) = 30;
-		wait1Msec(1000);
+		motor(claw) = -30;
+		wait1Msec(3800);
+		motor(claw) = 0;
 		//pick up block
 		leftBack = getMotorEncoder(left);
 		rightBack = getMotorEncoder(right);
@@ -41,8 +42,9 @@ void gState1()
 		motor(right) = -30;
 	}
 
-	motor(claw) = -100;
-	wait1Msec(1000); //drop block
+	motor(claw) = 30;
+	wait1Msec(3800);
+	motor(claw) = 0; //drop block
 
 	motor(left) = 0;
 	motor(right) = 0;
@@ -91,10 +93,10 @@ task main()
 
 	while(gState == 3)
 	{
-		motor(claw) = 30;
+		motor(claw) = -30;
 		wait1Msec(3800);
-	  motor(claw) = 0;
-	  gState = 4;
+		motor(claw) = 0;
+		gState = 4;
 		//return blacok f
 	}
 
