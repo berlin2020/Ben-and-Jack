@@ -48,10 +48,35 @@ void gState1()
 
 	motor(left) = 0;
 	motor(right) = 0;
+	wait1Msec(100);
+
+	resetMotorEncoder(left);
+	resetMotorEncoder(right);
+
+	while(getMotorEncoder(left) <= 360)
+	{
+		motor(left) = 20;
+		motor(right) = -20;
+	}
+
+	motor(left) = 0;
+	motor(right) = 0;
 
 	motor(claw) = 30;
 	wait1Msec(3900);
 	motor(claw) = 0; //drop block
+
+	resetMotorEncoder(left);
+	resetMotorEncoder(right);
+
+	while(getMotorEncoder(left) <= 360)
+	{
+		motor(left) = 20;
+		motor(right) = -20;
+	}
+
+	motor(left) = 0;
+	motor(right) = 0;
 
 	gState = 2;
 
