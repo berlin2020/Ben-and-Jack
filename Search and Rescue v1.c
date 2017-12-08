@@ -23,8 +23,18 @@ void gState0()
 		}
 		while(sensorValue(color) == colorWhite)
 		{
-			motor(left) = 15;
+			motor(left) = 30;
+			motor(right) = 15;
+		}
+			while(SensorValue(color) == colorBlack)
+		{
+			motor(left) = 0;
 			motor(right) = 30;
+		}
+		while(sensorValue(color) == colorRed)
+		{
+			motor(left) = 30;
+			motor(right) = 15;
 		}
 	}
 
