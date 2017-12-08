@@ -16,19 +16,16 @@ void gState0()
 		motor(left) = 20;
 		motor(right) = 20;
 
-		if(SensorValue(distance) <= 7)
+		while(SensorValue(color) == colorBlack)
 		{
 			motor(left) = 30;
-			motor(right) = -30;
+			motor(right) = 0;
 		}
-		while(SensorValue(color) = colorBlack)
+		while(sensorValue(color) == colorWhite)
 		{
-			motor(left) = 30;
-			motor(right) = 5;
+			motor(left) = 15;
+			motor(right) = 30;
 		}
-
-		motor(left) = 5;
-		motor(right) = 30;
 	}
 
 }
@@ -112,7 +109,16 @@ void gState2()
 
 void gState3()
 {
-
+	while(SensorValue(color) == colorBlack)
+	{
+		motor(left) = 100;
+		motor(right) = 100;
+	}
+	while(SensorValue(color) == colorWhite)
+	{
+		motor(left) = 0;
+		motor(right) = 0;
+	}
 }
 
 task main()
@@ -147,10 +153,6 @@ task main()
 
 	while(gState == 3)
 	{
-		motor(claw) = -30;
-		wait1Msec(3800);
-		motor(claw) = 0;
-		gState = 4;
 		//return blacok f
 	}
 
