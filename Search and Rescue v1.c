@@ -26,7 +26,7 @@ void gState0()
 			motor(left) = 30;
 			motor(right) = 15;
 		}
-			while(SensorValue(color) == colorBlack)
+		while(SensorValue(color) == colorBlack)
 		{
 			motor(left) = 0;
 			motor(right) = 30;
@@ -112,8 +112,43 @@ void gState1()
 
 void gState2()
 {
+	int lineFollow = 0;
+
+	resetMotorEncoder(left);
+	resetMotorEncoder(right);
+
 	motor(left) = 0;
 	motor(right) = 0;
+	wait1Msec(100);
+	motor(left) = 30;
+	motor(right) = 30;
+
+	if((SensorValue(color) == colorBlack) && (lineFollow == 0))
+	{
+		lineFollow = 1;
+	}
+	if((SensorValue(color) == colorWhite) && (lineFollow == 1))
+	{
+		lineFollow == 2;
+	}
+
+	while((SensorValue(color) == colorWhite) && (lineFollow == 2)
+	{
+		motor(left) = 30;
+		motor(right) = 5;
+	}
+
+	while((SensorValue(color) == colorBlack) && (lineFollow == 2)
+	{
+		motor(left) = 5;
+		motor(right) = 30;
+	}
+
+	while((SensorValue(color) == colorRed) && (lineFollow == 2)
+	{
+		motor(left) = 5;
+		motor(right) = 30;
+	}
 
 }
 
